@@ -17,4 +17,15 @@ public class Task {
 	private Long id;
 	private String description;
 	private boolean done;
+
+	public Task() {
+	}
+
+	public Task(boolean done) {
+		this.done = done;
+	}
+
+	public boolean isDone() {
+		return done;
+	}
 }

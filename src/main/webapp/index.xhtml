@@ -1,17 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors"/>
+    <meta name="generator" content="Jekyll v4.1.1"/>
+    <title>Desafio Esig</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet"/>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet"/>
 </h:head>
 
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Desafio ESIG</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="https://github.com/martin-petersen" target="_blank">Github</a>
+            </nav>
+        </div>
+    </header>
 
+    <main role="main" class="inner cover">
+        <h:form>
+            <h3>Task</h3>
+            <div class="ui-fluid">
+                <div class="p-field">
+                    <p:inputText id="name" value="#{taskController.tarefa.description}" placeholder="Digite sua tarefa"/>
+                </div>
+            </div>
+
+            <div style="margin: 15px">
+                <p:commandButton value="Submit" id="salvar" update="@form tabela"
+                                 action="#{taskController.novaTask}" style="margin-right:20px;"/>
+            </div>
+
+            <p:dataTable id="tabela" var="tarefa" value="#{taskController.lista}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{tarefa.id}" />
+                </p:column>
+
+                <p:column headerText="Tarefa">
+                    <h:outputText value="#{tarefa.description}" />
+                </p:column>
+
+                <p:column headerText="Status">
+                    <h:outputText value="#{tarefa.done ? 'Completo' : 'Incompleto'}" />
+                </p:column>
+
+                <p:column headerText="Manage">
+                    <p:commandButton action="#{taskController.atualizarStatus(tarefa)}" id="done"
+                                     update="table" icon="pi pi-check-circle"/>
+                    <p:commandButton action="#{taskController.atualizarDescription(tarefa)}" id="update"
+                                     update="@form table" icon="pi pi-pencil"/>
+                    <p:commandButton action="#{taskController.remover(tarefa)}" id="delete"
+                                     update="table" icon="pi pi-trash"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div id="footer" class="inner">
+            <p>Projeto feito para processo seletivo da empresa <a href="https://www.esig.com.br/portal/" target="_blank">Esig Software e Consultoria</a></p>
+            <p>desenvolvido por <a href="www.linkedin.com/in/martinrpetersen" target="_blank">Martin Petersen</a></p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
