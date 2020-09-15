@@ -19,8 +19,10 @@ public class TaskController {
     private Task tarefa = new Task(false);
 
     public void novaTask() {
-        taskRepository.save(tarefa);
-        tarefa = new Task();
+        if(!tarefa.getDescription().equals("")){
+            taskRepository.save(tarefa);
+            tarefa = new Task();
+        }
     }
 
     public List<Task> getLista() {
