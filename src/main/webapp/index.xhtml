@@ -77,11 +77,11 @@
 
                 <p:column headerText="Manage">
                     <p:commandButton action="#{taskController.atualizarStatus(tarefa)}" id="done"
-                                     update="tabela" icon="pi pi-check-circle"/>
+                                     update="tabela" style="background: limegreen; color: #ffffff" icon="pi pi-check-circle"/>
                     <p:commandButton action="#{taskController.atualizarDescription(tarefa)}" id="update"
-                                     update="@form:name" icon="pi pi-pencil"/>
+                                     update="@form:name" style="background: dodgerblue; color: #ffffff" icon="pi pi-pencil"/>
                     <p:commandButton action="#{taskController.remover(tarefa)}" id="delete"
-                                     update="tabela" icon="pi pi-trash"/>
+                                     update="tabela" style="background: red; color: #ffffff" icon="pi pi-trash"/>
                 </p:column>
 
             </p:dataTable>
