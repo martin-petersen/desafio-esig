@@ -37,7 +37,7 @@ public class TaskController {
     }
 
     public void atualizarDescription(Task tarefa) {
-        taskRepository.save(tarefa);
+        this.tarefa = tarefa;
     }
 
     public Task getTarefa() {
