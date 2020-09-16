@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "task")
+@RequestMapping(path = "/task")
 @RequiredArgsConstructor
 public class TaskRestController {
 
