@@ -8,9 +8,9 @@
  - [x] Utilizar Bootstrap 4;
  - [x] Utilizar Primefaces;
  - [x] Utilizar testes de unidades;
- - [] Criar single page app utilizando react;
+ - [ ] Criar single page app utilizando react;
  - [x] Publicar projeto no heroku;
- - [] Criar aplicativo mobile utilizando Flutter.
+ - [ ] Criar aplicativo mobile utilizando Flutter.
 ##Informações:
   A aplicação foi criada em Spring Boot utilizando o padrão MVC com a view feita em JSF utilizando bootstrap e primefaces,
   o banco de dados adotado para o projeto foi o h2 database. Também foi criado uma rest API para comunicação com apps externos.
